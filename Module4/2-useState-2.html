@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Effects | Tocode.ru</title>
+  </head>
+
+  <body>
+    <div id="app"></div>
+
+    <div>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"
+        crossorigin
+      ></script>
+      <script
+        src="https://unpkg.com/react@17/umd/react.development.js"
+        crossorigin
+      ></script>
+      <script
+        src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+        crossorigin
+      ></script>
+    </div>
+
+    <!-- Load our React component -->
+    <script type="text/babel">
+      // Main App
+      const App = () => {
+        // form:
+        const [show, setShow] = React.useState(true);
+        // inputs:
+        const [name, setName] = React.useState("ivan");
+        const [surname, setSurname] = React.useState("");
+
+        const handleSubmit = () => {
+          event.preventDefault();
+          setShow(false);
+        };
+
+        return (
+          <div>
+            {show ? (
+              <form onSubmit={handleSubmit}>
+                <p>Name:</p>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+                <br />
+
+                <p>Surname:</p>
+                <input
+                  type="text"
+                  value={surname}
+                  onChange={(e) => setSurname(e.target.value)}
+                />
+
+                <br />
+                <br />
+                <button type="submit">Submit</button>
+              </form>
+            ) : (
+              <div>
+                <p>Welcome admin:</p>
+                <p>Name: {name}</p>
+                <p>Surname: {surname}</p>
+              </div>
+            )}
+          </div>
+        );
+      };
+      ReactDOM.render(<App />, document.getElementById("app"));
+    </script>
+  </body>
+</html>

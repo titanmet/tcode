@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic</title>
+  </head>
+
+  <body>
+    <div id="app"></div>
+
+    <div>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"
+        crossorigin
+      ></script>
+      <script
+        src="https://unpkg.com/react@17/umd/react.development.js"
+        crossorigin
+      ></script>
+      <script
+        src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+        crossorigin
+      ></script>
+    </div>
+
+    <!-- Load our React component -->
+    <script type="text/babel">
+      // list
+      const List = () => {
+        // json
+        const arr = [
+          {id: 1, title: "element", style: {background: "yellow"}},
+          {id: 2, title: "element 123", style: {background: "green"}},
+          {id: 3, title: "element", style: {background: "red"},
+           isActive: true},
+        ];
+
+        const elements = arr.map((el) => (
+          <li
+            key={el.id}
+            style={el.style}
+            className={el.isActive ? "active" : "default"}
+          >
+            {el.id} - {el.title}
+          </li>
+        ));
+
+        return <ul>{elements}</ul>;
+      };
+
+      // Main App
+      const App = () => (
+        <React.Fragment>
+          <List />
+        </React.Fragment>
+      );
+      ReactDOM.render(<App />, document.getElementById("app"));
+    </script>
+  </body>
+</html>

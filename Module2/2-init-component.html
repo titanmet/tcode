@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic | Tocode.ru</title>
+  </head>
+
+  <body>
+    <section>
+      <div class="container">
+        <header>
+          <span class="logo">site logo</span>
+          <span id="menu" class="menu"></span>
+        </header>
+      </div>
+    </section>
+
+    <div id="app"></div>
+
+    <div>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"
+        crossorigin
+      ></script>
+      <script
+        src="https://unpkg.com/react@17/umd/react.development.js"
+        crossorigin
+      ></script>
+      <script
+        src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+        crossorigin
+      ></script>
+    </div>
+
+    <!-- Load our React component -->
+    <script type="text/babel">
+      // Menu component
+      const Menu = () => {
+        let isOpen = false;
+
+        const handleToggle = () => {
+          isOpen = !isOpen;
+          console.log(isOpen ? "open" : "close");
+        };
+
+        return <span onClick={handleToggle}>Menu</span>;
+      };
+      ReactDOM.render(<Menu />, document.getElementById("menu"));
+
+      // Main App
+      const App = () => React.createElement("button", {}, "Hello world");
+      ReactDOM.render(<App />, document.getElementById("app"));
+    </script>
+  </body>
+</html>

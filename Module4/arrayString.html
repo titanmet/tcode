@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Effects | Tocode.ru</title>
+</head>
+
+<body>
+<div id="app"></div>
+
+<div>
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"
+            crossorigin
+    ></script>
+    <script
+            src="https://unpkg.com/react@17/umd/react.development.js"
+            crossorigin
+    ></script>
+    <script
+            src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+            crossorigin
+    ></script>
+</div>
+
+<!-- Load our React component -->
+<script type="text/babel">
+    // message
+    const messages = [
+        {
+            title: "Duis lobortis, velit vitae tristique?",
+            body: "Etiam viverra sed lorem vitae finibus. Nullam ac tincidunt ante, quis hendrerit odio. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse convallis in nisi eget rutrum. Etiam efficitur, erat sed ultrices eleifend, elit purus interdum dolor, ac vehicula.",
+        },
+        {
+            title: "Aenean nec dui scelerisque?",
+            body: "Fusce congue eros accumsan, pulvinar erat quis, pharetra felis. Vestibulum non turpis euismod, vulputate nisl non, elementum nulla. Proin eget enim neque. Proin vehicula faucibus nisl. Donec tincidunt neque turpis, sed bibendum nunc accumsan et. Aenean nec dui scelerisque, congue orci ac, scelerisque diam. Phasellus consectetur fringilla condimentum.",
+        },
+        {
+            title: "Nullam ac tincidunt ante?",
+            body: 'Phasellus gravida maximus metus, et consequat nulla aliquam eu. <br /><img src="https://toppng.com/uploads/preview/react-logo-icon-11609374122d9vkbptqap.png" alt="react"/><br /><br />Suspendisse nec dolor scelerisque tellus aliquet hendrerit. Vestibulum sed tempus nunc. Mauris at efficitur orci, eget vehicula urna. Aliquam blandit elit ut nunc congue, eget iaculis sem tempor.',
+        },
+        {
+            title: "Etiam vestibulum congue. Suspendisse eu interdum diam?",
+            body: "Vestibulum sed tempus nunc. Mauris at efficitur orci, eget vehicula urna. Aliquam blandit elit ut nunc congue, eget iaculis sem tempor. Suspendisse sit amet suscipit elit. Quisque tincidunt ante ac mauris tristique hendrerit. Proin mollis lectus et nisl dignissim ullamcorper.",
+        },
+    ];
+
+    // Main App
+    const App = () => {
+        const [show, setShow] = React.useState(false);
+        const [show1, setShow1] = React.useState(false);
+        const [show2, setShow2] = React.useState(false);
+        const [show3, setShow3] = React.useState(false);
+        const [message, setMessage] = React.useState(messages);
+
+        return (
+            <React.Fragment>
+                <h3 onClick={() => setShow(!show)}>
+                    {message[0].title}
+                    <h4>{show && <div dangerouslySetInnerHTML={{__html: message[0].body}}/>}</h4>
+                </h3>
+                <h3 onClick={() => setShow1(!show1)}>
+                    {message[1].title}
+                    <h4>{show1 && <div dangerouslySetInnerHTML={{__html: message[1].body}}/>}</h4>
+                </h3>
+                <h3 onClick={() => setShow2(!show2)}>
+                    {message[2].title}
+                    <h4>{show2 && <div dangerouslySetInnerHTML={{__html: message[2].body}}/>}</h4>
+                </h3>
+                <h3 onClick={() => setShow3(!show3)}>
+                    {message[3].title}
+                    <h4>{show3 && <div dangerouslySetInnerHTML={{__html: message[3].body}}/>}</h4>
+                </h3>
+            </React.Fragment>
+        );
+    };
+    ReactDOM.render(<App/>, document.getElementById("app"));
+</script>
+</body>
+</html>

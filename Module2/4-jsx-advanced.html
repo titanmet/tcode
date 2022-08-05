@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic | Tocode.ru</title>
+  </head>
+
+  <body>
+    <div id="app"></div>
+
+    <div>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"
+        crossorigin
+      ></script>
+      <script
+        src="https://unpkg.com/react@17/umd/react.development.js"
+        crossorigin
+      ></script>
+      <script
+        src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+        crossorigin
+      ></script>
+    </div>
+
+    <!-- Load our React component -->
+    <script type="text/babel">
+      // component
+      const Button = () => {
+        const title = <p>Hello world</p>;
+        return (
+          <button type="submit" title="hello world">
+            {title}
+          </button>
+        );
+      };
+
+      // list
+      const List = () => {
+        return (
+          <ul>
+            <li>element 1</li>
+            <li>element 2</li>
+            <li>element 3</li>
+            <li>element 4</li>
+          </ul>
+        );
+      };
+
+      // Main App
+      const App = () => (
+        <React.Fragment>
+          <List />
+          <Button />
+        </React.Fragment>
+      );
+      ReactDOM.render(<App />, document.getElementById("app"));
+    </script>
+  </body>
+</html>

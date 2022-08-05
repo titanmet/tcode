@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic | Tocode.ru</title>
+  </head>
+
+  <body>
+    <div id="app"></div>
+
+    <div>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"
+        crossorigin
+      ></script>
+      <script
+        src="https://unpkg.com/react@17/umd/react.development.js"
+        crossorigin
+      ></script>
+      <script
+        src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+        crossorigin
+      ></script>
+    </div>
+
+    <!-- Load our React component -->
+    <script type="text/babel">
+      // Main App
+      const App = () =>  {
+        // Input
+        const [shopCart, setShopCart] = React.useState({item1:"Juice", item2:"Icrecream"});
+
+        const handleClick = (item_id,e) => {
+        let copiedShopCart = {...shopCart};
+        delete copiedShopCart[item_id];
+        setShopCart( shopCart => ({
+            ...copiedShopCart
+        }));
+         console.log(shopCart);
+        }
+ 
+        return (
+        <div classname="App">
+        1 - {shopCart.item1}
+        <button onClick={(e) => handleClick("item1",e)}>delete</button>
+
+        <br/>
+        <br/>
+
+        2 - {shopCart.item2}
+        <button onClick={(e) => handleClick("item2",e)}>delete</button>
+        <pre>{JSON.stringify(shopCart, null, 2)}</pre>
+        </div>
+        );
+        };
+      ReactDOM.render(<App />, document.getElementById("app"));
+    </script>
+  </body>
+</html>

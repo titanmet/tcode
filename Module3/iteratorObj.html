@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic | Tocode.ru</title>
+  </head>
+
+  <body>
+    <div id="app"></div>
+
+    <div>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"
+        crossorigin
+      ></script>
+      <script
+        src="https://unpkg.com/react@17/umd/react.development.js"
+        crossorigin
+      ></script>
+      <script
+        src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+        crossorigin
+      ></script>
+    </div>
+    
+    <!-- Load our React component -->
+    <!-- <script type="text/babel"> -->
+        <script>
+    //   // list
+    //   const List = () => {
+    //     const arr = ["element", "element", "element"];
+    //     const elements = arr.map((el, i) => (
+    //       <li key={i}>
+    //         {i} - {el}
+    //       </li>
+    //     ));
+
+    //     return <ul>{elements}</ul>;
+    //   };
+
+    //   // Main App
+    //   const App = () => (
+    //     <React.Fragment>
+    //       <List />
+    //     </React.Fragment>
+    //   );
+    //   ReactDOM.render(<App />, document.getElementById("app"));
+    let range = {
+        from: 1,
+        to: 5,
+
+        [Symbol.iterator]() {
+          this.current = this.from;
+          return this;
+        },
+
+        next() {
+          if(this.current <= this.to) {
+            return {done: false, value: this.current++ };
+          } else {
+            return { done:true }
+          }
+        }
+    };
+
+    // range[Symbol.iterator] = function() {
+    //     return {
+    //         current: this.from,
+    //         last: this.to,
+
+    //         next() {
+    //             if(this.current <= this.last) {
+    //                 return {done: false, value: this.current++ }
+    //             } else {
+    //                 return { done:true }
+    //             }
+    //         }
+    //     }
+    // };
+
+    for(let num of range) {
+        alert(num);
+    }
+
+    for(let char of 'test') {
+      alert(char);
+    }
+
+    let str = "test";
+    let iterator = str[Symbol.iterator]();
+
+    while(true) {
+      let result = iterator.next();
+      if (result.done) break;
+      alert(result.value);
+    }
+
+    let arrayLike = {
+      0: "Hello",
+      1: "World",
+      length: 2
+    };
+
+    let arrIter = Array.from(arrayLike);
+
+    for(let arr of arrIter) {
+      alert(arr);
+    }
+
+    const name = '\u00A9';
+
+    alert(name);
+
+    var a = 5;
+    var b = 10;
+
+    alert(`Fifteen is ${a+b} and\nnot ${2 * a + b}.`);
+
+    </script>
+  </body>
+</html>
