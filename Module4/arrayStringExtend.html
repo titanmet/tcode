@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Effects | Tocode.ru</title>
+</head>
+
+<body>
+<div id="app"></div>
+
+<div>
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"
+            crossorigin
+    ></script>
+    <script
+            src="https://unpkg.com/react@17/umd/react.development.js"
+            crossorigin
+    ></script>
+    <script
+            src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+            crossorigin
+    ></script>
+</div>
+
+<!-- Load our React component -->
+<script type="text/babel">
+    // message
+    const messages = [
+        {
+            title: 'Ut nec elit eu purus ultrices',
+            descr: 'Nulla gravida porta lorem non consectetur',
+        },
+        {
+            title: 'Duis lobortis',
+            descr: 'Nullam ac tincidunt ante',
+            children: [
+                {
+                    title: 'Lobortis #1',
+                    descr: 'Phasellus gravida',
+                },
+                {
+                    title: 'Lobortis #2',
+                    descr: 'Phasellus gravida',
+                },
+                {
+                    title: 'Lobortis #3',
+                    descr: 'Phasellus gravida',
+                },
+            ],
+        },
+        {
+            title: 'Duis lobortis',
+            descr: 'Donec tincidunt neque turpis',
+            children: [
+                {
+                    title: 'Duis #1',
+                    descr: 'Quisque id feugiat sem',
+                },
+                {
+                    title: 'Duis #2',
+                    descr: 'Suspendisse eu interdum diam',
+                    children: [
+                        {
+                            title: 'Porttitor #1',
+                            descr: 'Donec porttitor ullamcorper magna',
+                        },
+                        {
+                            title: 'Porttitor #2',
+                            descr: 'Quisque id feugiat sem',
+                        },
+                    ],
+                },
+            ],
+        },
+    ]
+
+    const App = ({data}) => {
+        return (
+            <div>
+                <Comments items={this.messages}/>
+            </div>
+        );
+    };
+
+    const Comments = ({items}) => (
+        <React.Fragment>
+            {items.map(n => (
+                <div className="comment" key={n.id}>
+                    <h3>{n.title}</h3>
+                    <div>{n.descr}</div>
+                    {n.children && n.children.length ? <Comments items={n.children}/> : null}
+                </div>
+            ))}
+        </React.Fragment>
+    );
+
+    ReactDOM.render(<App data={messages}/>, document.getElementById("app"));
+</script>
+</body>
+</html>
