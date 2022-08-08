@@ -4,12 +4,32 @@ import propTypes from "prop-types";
 import classNames from "classnames";
 
 import Container from "../../layouts/Container";
-
-import {FaBuysellads} from 'react-icons/fa';
+import { NavLink } from "react-router-dom";
 
 import './Header.scss';
 
 import {ReactComponent as LogoIcon} from "../../assets/img/logo.svg"
+
+const menuLinks = [
+  {
+    title: 'Home',
+    alias: '/'
+  },
+  {
+    title: 'About',
+    alias: '/about'
+  }
+]
+
+const menuItem = menuLinks.map(item => (
+  <li key={item.alias}>
+    <NavLink to={item.alias}>
+      <div className='ui-button isLink'>{item.title}</div>
+    </NavLink>
+  </li>
+))
+
+const menuList = <ul className='HeaderList'>{menuItem}</ul>
 
 const Header = ({isLogo, isFixed, className, ...attrs}) => {
     const classes = classNames("Header",
@@ -25,10 +45,7 @@ const Header = ({isLogo, isFixed, className, ...attrs}) => {
                         {isLogo && <LogoIcon/>}
                         <span>React app</span>
                     </div>
-                    <ul className="ui-button-group">
-                        <li className="ui-link">Home</li>
-                        <li className="ui-link">About</li>
-                    </ul>
+                  {menuList}
                 </div>
             </Container>
         </header>)

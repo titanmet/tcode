@@ -22,3 +22,14 @@ img {
   margin-right: 4px;
 }
 
+.HeaderList {
+  display: flex;
+  a {
+    text-decoration: solid;
+    &.active {
+      cursor: default;
+      pointer-events: none;
+      opacity: 0.8;
+    }
+  }
+}
