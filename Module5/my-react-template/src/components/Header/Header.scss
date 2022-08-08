@@ -1,10 +1,11 @@
 .Header {
+  background-color: var(--ui-g-0);
+  z-index: 1;
   &.isFixed {
     position: fixed;
     top: 0;
-    display: flex;
-    align-items: center;
-    font-weight: 700;
+    right: 0;
+    left: 0;
   }
 }
 
