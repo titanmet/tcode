@@ -4,10 +4,11 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Effects | Tocode.ru</title>
+    <title>Effects</title>
 </head>
 
 <body>
+
 <div id="app"></div>
 
 <div>
@@ -47,30 +48,30 @@
         },
     ];
 
+    const List = ({title, children}) => {
+        const [isShow, setShow] = React.useState(false)
+
+        const isChildren = Array.isArray(children)
+        const classes = (isChildren ? `child ${!isShow ? `hidden` : `show`}` : '')
+
+        return (
+            <li className={classes}>
+                <span onClick={() => setShow(!isShow)}>{title}</span>
+                <div>{isShow && <div dangerouslySetInnerHTML={{__html: children}}/>}</div>
+            </li>
+        )
+    }
+
     const App = ({data}) => {
         return (
             <ul className="list">
-                {data.map((item, index) => (
-                    <List data={item} key={index}/>
+                {data.map((item) => (
+                    <List title={item.title} children={item.body}/>
                 ))}
             </ul>
         );
     };
 
-    const List = ({title, children}) => {
-        const [isShow, setShow] = React.useState(false);
-        const clickShow = () => setShow(!isShow);
-        const isChildren = Array.isArray(children);
-        const classes = (isChildren ? `child ${!isShow ? `hidden` : `show`}` : '');
-        return (
-            <li className={classes}>
-                <span onClick={() => setShow(!isShow)}>
-                    {title}
-                </span>
-                <p>{clickShow && <div dangerouslySetInnerHTML={{__html: children}}/>}</p>
-            </li>
-        )
-    }
     ReactDOM.render(<App data={messages}/>, document.getElementById("app"));
 </script>
 </body>

@@ -2,10 +2,13 @@ import React from "react";
 
 import "./scss/main.scss";
 
-import {FaBeer} from 'react-icons/fa';
+//pages
+import HomePage from "./pages/Home";
+import AboutPage from "./pages/About";
+import NotFoundPage from "./pages/NotFound";
 
+//components
 import {Header, Footer} from "./components";
-import {Container} from "./layouts";
 import {Routes, Route} from "react-router-dom";
 
 const App = () => {
@@ -13,12 +16,11 @@ const App = () => {
     <div className="ui-wrapper">
       <Header isLogo/>
       <div className="ui-content-wrapper">
-        <Container>
-          <Routes>
-            <Route path='/' element={<h1>Home page</h1>} />
-            <Route path='/about' element={<h1>About page</h1>} />
-          </Routes>
-        </Container>
+        <Routes>
+          <Route path='/' element={<HomePage/>}/>
+          <Route path='/about' element={<AboutPage/>}/>
+          <Route path='*' element={<NotFoundPage/>}/>
+        </Routes>
       </div>
       <Footer/>
     </div>)

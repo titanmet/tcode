@@ -11,7 +11,7 @@ import './Header.scss';
 
 import {ReactComponent as LogoIcon} from "../../assets/img/logo.svg"
 
-const Header = ({isLogo, isFixed, className, ...attrs}) => {
+const Home = ({isLogo, isFixed, className, ...attrs}) => {
     const classes = classNames("Header",
         className,
         {

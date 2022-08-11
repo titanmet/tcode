@@ -77,25 +77,32 @@
         },
     ]
 
+    const List = ({title, children}) => {
+        const [isShow, setShow] = React.useState(false)
+
+        const isChildren = Array.isArray(children)
+        const classes = (isChildren ? `child ${!isShow ? `hidden` : `show`}` : '')
+
+        return (
+            <li className={classes}>
+                <span onClick={() => setShow(!isShow)}>{title}</span>
+                <div>{isShow && <div dangerouslySetInnerHTML={{__html: children}}/>}</div>
+            </li>
+        )
+    }
+
     const App = ({data}) => {
         return (
-            <div>
-                <Comments items={this.messages}/>
-            </div>
+            <ul className="list">
+                {data.map((item) => (
+                    <div>
+                        <List title={item.title} children={item.descr}/>
+                        {item.children && item.children.length ? <App data={item.children} /> : null}
+                    </div>
+                ))}
+            </ul>
         );
     };
-
-    const Comments = ({items}) => (
-        <React.Fragment>
-            {items.map(n => (
-                <div className="comment" key={n.id}>
-                    <h3>{n.title}</h3>
-                    <div>{n.descr}</div>
-                    {n.children && n.children.length ? <Comments items={n.children}/> : null}
-                </div>
-            ))}
-        </React.Fragment>
-    );
 
     ReactDOM.render(<App data={messages}/>, document.getElementById("app"));
 </script>
