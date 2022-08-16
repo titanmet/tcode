@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import Container from "layouts/Container";
+import Container from 'layouts/Container'
 
 const AboutPage = () => {
     return (
@@ -10,4 +10,4 @@ const AboutPage = () => {
         )
 };
 
-export default AboutPage;
+export default AboutPage

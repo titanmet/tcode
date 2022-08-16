@@ -3,10 +3,10 @@ import React from 'react'
 const List = ({items, onChangeItem, onRemoveItem}) => {
 
   return (
-    <div className="view-sm flex-col items-center mb-2">
+    <div className="view-sm flex-col">
       {items && items.length > 0 ? items.map((item) => (
-          <div className="flex justify-between">
-            <div key={item.id} className="ui-checkbox">
+          <div key={item.id} className="flex justify-between items-center mb-2">
+            <div className="ui-checkbox">
               <input
                 id={item.id}
                 type="checkbox"

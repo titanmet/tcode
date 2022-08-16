@@ -1,9 +1,12 @@
-import React from "react";
-import propTypes from "prop-types";
-import classNames from "classnames";
+import React from 'react'
+
+import propTypes from 'prop-types'
+
+import classNames from 'classnames'
 
 const Container = ({className, children, ...attrs}) => {
     const classes = classNames("ui-container", className);
+
     return (
         <div className={classes} {...attrs}>{children}</div>
     );
@@ -15,7 +18,7 @@ Container.propTypes = {
 }
 
 Container.defaultProps = {
-    classNames: ""
+    classNames: ''
 }
 
-export default Container;
+export default Container

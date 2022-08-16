@@ -1,15 +1,15 @@
 import React from "react";
+import { Routes, Route } from 'react-router-dom'
 
-import "./scss/main.scss";
+import "./assets/scss/main.scss"
 
 //pages
-import HomePage from "./pages/Home";
-import AboutPage from "./pages/About";
-import NotFoundPage from "./pages/NotFound";
+import HomePage from "./pages/Home"
+import AboutPage from "./pages/About"
+import NotFoundPage from "./pages/NotFound"
 
 //components
-import {Header, Footer} from "./components";
-import {Routes, Route} from "react-router-dom";
+import {Header, Footer} from "./components"
 
 const App = () => {
   return (
