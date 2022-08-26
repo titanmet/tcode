@@ -1,9 +1,6 @@
 import React from 'react'
-
-import { Form, List } from '../../components/Todo'
-
-import { Container } from '../../layouts'
-
+import {Form, List, Tags} from '../../components/Todo'
+import {Container} from '../../layouts'
 import todos from '../../seeders/todos.json'
 
 const HomePage = () => {
@@ -23,7 +20,7 @@ const HomePage = () => {
   // update
   const handleChangeItem = (id) => {
     const nextItems = items.map((el) =>
-      el.id === id ? { ...el, isChecked: !el.isChecked } : el
+      el.id === id ? {...el, isChecked: !el.isChecked} : el
     )
     setItems(nextItems)
   }
@@ -45,12 +42,19 @@ const HomePage = () => {
 
   return (
     <Container>
-      <Form onSubmit={handleSubmit} />
-      <List
-        items={items}
-        onChangeItem={handleChangeItem}
-        onRemoveItem={handleRemoveItem}
-      />
+      <div className='view-wrapper'>
+        <div>
+          <Tags isVertical onItemsClick='? runMyCoolTasksFilter ?'/>
+        </div>
+        <div className='view-content'>
+          <Form onSubmit={handleSubmit}/>
+          <List
+            items={items}
+            onChangeItem={handleChangeItem}
+            onRemoveItem={handleRemoveItem}
+          />
+        </div>
+      </div>
     </Container>
   )
 }

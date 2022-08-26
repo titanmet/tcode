@@ -1,8 +1,9 @@
 import React from 'react'
+import Tags from "./Tags";
 
 const List = ({ items, onChangeItem, onRemoveItem }) => {
   return (
-    <div className='view-sm flex-col'>
+    <div className='flex-col'>
       {items && items.length > 0
         ? items.map((item) => (
             <div
@@ -17,6 +18,7 @@ const List = ({ items, onChangeItem, onRemoveItem }) => {
                   onChange={() => onChangeItem(item.id)}
                 />
                 <label htmlFor={item.id}>{item.title}</label>
+                <Tags classNames='?' items='? item.tags ?' />
               </div>
               <span
                 className='ui-link pl-2 text-sm'
