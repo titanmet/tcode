@@ -1,5 +1,5 @@
 {
-  "name": "my-react-template",
+  "name": "my-react-todo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,10 +11,12 @@
     "react-icons": "^4.4.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
-    "uimini": "^2.0.7"
+    "uimini": "^2.0.7",
+    "uuid": "^8.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
+    "build": "react-scripts build",
     "build:staging": "env-cmd -f config/.env.config.staging react-scripts build",
     "build:production": "env-cmd -f config/.env.config.production react-scripts build",
     "test": "react-scripts test",
